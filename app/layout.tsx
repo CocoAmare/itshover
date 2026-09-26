@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
+import ProductBanner from "@/components/product-banner";
 import Footer from "@/components/footer";
 import { CommandMenu } from "@/components/cmdk";
 import { CommandMenuProvider } from "@/components/command-menu-context";
@@ -66,7 +67,10 @@ export default function RootLayout({
             <CommandMenuProvider>
               <TooltipProvider>
                 <CommandMenu />
-                <Navbar />
+                <div className="sticky top-0 z-50">
+                  <ProductBanner />
+                  <Navbar />
+                </div>
                 {children}
                 <Footer />
               </TooltipProvider>

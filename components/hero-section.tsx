@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect, useCallback, useState } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import PrimaryButton from "@/components/ui/primary-button";
 import SecondaryButton from "@/components/ui/secondary-button";
@@ -14,20 +14,9 @@ import LikeIcon from "@/icons/like-icon";
 import SendIcon from "@/icons/send-icon";
 import GhostIcon from "@/icons/ghost-icon";
 import ArrowNarrowRightIcon from "@/icons/arrow-narrow-right-icon";
-import CopyIcon from "@/icons/copy-icon";
-import CheckedIcon from "@/icons/checked-icon";
-import { TOKEN } from "@/constants";
 import type { AnimatedIconHandle } from "@/icons/types";
 
 const Hero = () => {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(TOKEN.CA);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   const textAnimation = {
     initial: {
       opacity: 0,
@@ -67,30 +56,6 @@ const Hero = () => {
           Editable React components with motion baked in. Works seamlessly with
           Next.js, shadcn, and modern design systems.
         </motion.p>
-        <motion.div
-          variants={textAnimation}
-          initial="initial"
-          animate="animate"
-          transition={{ ...textAnimation.transition, delay: 0.1 }}
-          className="flex flex-col items-center pt-4"
-        >
-          <button
-            onClick={handleCopy}
-            className="text-muted-foreground hover:text-foreground flex items-center gap-2 transition-colors"
-          >
-            <span className="font-mono text-xs font-medium tracking-wider uppercase">
-              ca:{" "}
-              <span className="text-foreground/80 font-normal break-all lowercase">
-                {TOKEN.CA}
-              </span>
-            </span>
-            {copied ? (
-              <CheckedIcon className="h-3 w-3 text-green-500" />
-            ) : (
-              <CopyIcon className="h-3 w-3 border-none bg-transparent" />
-            )}
-          </button>
-        </motion.div>
       </div>
       <motion.div
         variants={textAnimation}

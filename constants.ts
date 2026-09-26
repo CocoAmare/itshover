@@ -1,14 +1,9 @@
-export const TOKEN = {
-  CA: "",
-} as const;
-
 export const LINKS = {
   TWITTER: "https://x.com/abhijitwt",
   GITHUB: "https://github.com/itshover/itshover",
   SITE_URL: "https://itshover.com",
   CREATOR: "https://x.com/abhijitwt",
-  BAGS: `https://bags.fm/${TOKEN.CA}`,
-  DEXSCREENER: `https://dexscreener.com/solana/${TOKEN.CA}`,
+  TOOLS: "https://isthereanytool.app",
 } as const;
 
 export const SPONSOR = {
